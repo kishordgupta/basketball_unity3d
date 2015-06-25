@@ -59,7 +59,7 @@
  <HintPath>E:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="BehaviorDesignerRuntime">
- <HintPath>D:/sristy/Basketball_Final/BasketBall/BasketBall/Assets/Behavior Designer/Runtime/BehaviorDesignerRuntime.dll</HintPath>
+ <HintPath>D:/sristy/Basketball_Final/24.6bb/BasketBall/Assets/Behavior Designer/Runtime/BehaviorDesignerRuntime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

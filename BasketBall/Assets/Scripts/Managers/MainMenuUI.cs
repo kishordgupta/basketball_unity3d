@@ -4,6 +4,22 @@ using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour {
 
+
+
+	//	added later
+	
+	public Button SinglePlayerMode;
+	public Button MultiPlayerMode;
+	public Button Shop;
+	
+	public Button BackToMainMenu;
+	public Button BackShop; 
+	
+	public GameObject SinglePlayerPanel;
+	public GameObject PurchasePanel;
+	//	till here
+
+
 public Button ArcadeModeButton;
 public GameObject bgPanel;
 public Button ClassicButton;
@@ -33,9 +49,9 @@ public GameObject fixturePanel;
 
 						
 								
-								bgPanel.GetComponent<CanvasGroup> ().alpha = 0f;
-								bgPanel.GetComponent<CanvasGroup> ().interactable = false;
-								bgPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
+								SinglePlayerPanel.GetComponent<CanvasGroup> ().alpha = 0f;
+								SinglePlayerPanel.GetComponent<CanvasGroup> ().interactable = false;
+								SinglePlayerPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
 
 
 								fixturePanel.GetComponent<CanvasGroup> ().alpha = 1f;
@@ -64,9 +80,9 @@ public GameObject fixturePanel;
 			
 
 
-				bgPanel.GetComponent<CanvasGroup> ().alpha = 0f;
-				bgPanel.GetComponent<CanvasGroup> ().interactable = false;
-				bgPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
+				SinglePlayerPanel.GetComponent<CanvasGroup> ().alpha = 0f;
+				SinglePlayerPanel.GetComponent<CanvasGroup> ().interactable = false;
+				SinglePlayerPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
 				
 				
 
@@ -94,9 +110,9 @@ public GameObject fixturePanel;
 			PlayerPrefs.SetInt("modeName",2);
 
 
-			bgPanel.GetComponent<CanvasGroup> ().alpha = 0f;
-			bgPanel.GetComponent<CanvasGroup> ().interactable = false;
-			bgPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
+			SinglePlayerPanel.GetComponent<CanvasGroup> ().alpha = 0f;
+			SinglePlayerPanel.GetComponent<CanvasGroup> ().interactable = false;
+			SinglePlayerPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
 			
 			
 			
@@ -138,9 +154,9 @@ public GameObject fixturePanel;
 			PlayerPrefs.SetInt("modeName",1);
 			
 			
-			bgPanel.GetComponent<CanvasGroup> ().alpha = 0f;
-			bgPanel.GetComponent<CanvasGroup> ().interactable = false;
-			bgPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
+			SinglePlayerPanel.GetComponent<CanvasGroup> ().alpha = 0f;
+			SinglePlayerPanel.GetComponent<CanvasGroup> ().interactable = false;
+			SinglePlayerPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
 			
 			countrySelectPanel.GetComponent<CanvasGroup> ().alpha = 1f;
 			countrySelectPanel.GetComponent<CanvasGroup> ().interactable = true;
@@ -178,6 +194,52 @@ public GameObject fixturePanel;
 			settingsPanel.GetComponent<CanvasGroup> ().alpha = 0f;
 			settingsPanel.GetComponent<CanvasGroup> ().interactable = false;
 			settingsPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
+		});
+
+		SinglePlayerMode.onClick.AddListener (() => {
+			
+
+			
+			bgPanel.GetComponent<CanvasGroup> ().alpha = 0f;
+			bgPanel.GetComponent<CanvasGroup> ().interactable = false;
+			bgPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
+			
+			
+			SinglePlayerPanel.GetComponent<CanvasGroup> ().alpha = 1f;
+			SinglePlayerPanel.GetComponent<CanvasGroup> ().interactable = true;
+			SinglePlayerPanel.GetComponent<CanvasGroup> ().blocksRaycasts = true;
+			
+			
+		});
+
+		BackToMainMenu.onClick.AddListener(()=>{
+			bgPanel.GetComponent<CanvasGroup> ().alpha = 1f;
+			bgPanel.GetComponent<CanvasGroup> ().interactable = true;
+			bgPanel.GetComponent<CanvasGroup> ().blocksRaycasts = true;
+			
+			SinglePlayerPanel.GetComponent<CanvasGroup> ().alpha = 0f;
+			SinglePlayerPanel.GetComponent<CanvasGroup> ().interactable = false;
+			SinglePlayerPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
+		});
+
+		BackShop.onClick.AddListener(()=>{
+			bgPanel.GetComponent<CanvasGroup> ().alpha = 1f;
+			bgPanel.GetComponent<CanvasGroup> ().interactable = true;
+			bgPanel.GetComponent<CanvasGroup> ().blocksRaycasts = true;
+			
+			PurchasePanel.GetComponent<CanvasGroup> ().alpha = 0f;
+			PurchasePanel.GetComponent<CanvasGroup> ().interactable = false;
+			PurchasePanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
+		});
+
+		Shop.onClick.AddListener (()=>{
+			bgPanel.GetComponent<CanvasGroup> ().alpha = 0f;
+			bgPanel.GetComponent<CanvasGroup> ().interactable = false;
+			bgPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
+			
+			PurchasePanel.GetComponent<CanvasGroup> ().alpha = 1f;
+			PurchasePanel.GetComponent<CanvasGroup> ().interactable = true;
+			PurchasePanel.GetComponent<CanvasGroup> ().blocksRaycasts = true;
 		});
 
 
