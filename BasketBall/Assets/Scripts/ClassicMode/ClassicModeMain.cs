@@ -77,7 +77,7 @@ public class ClassicModeMain : MonoBehaviour {
 			levelLocked=1;
 		}
 		levelLocked= PlayerPrefs.GetInt("levelLockPrevious");
-		PlayerPrefs.SetInt("numberNewLevel",levelLocked+1);
+		PlayerPrefs.SetInt ("numberNewLevel",levelLocked+1);
 
 		for(int i=1;i<PlayerPrefs.GetInt("numberNewLevel");i++)
 		{

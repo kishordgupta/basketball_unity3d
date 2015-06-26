@@ -20,7 +20,7 @@ public class ClassicLevelChoose : MonoBehaviour {
 
 	void SelectLevel()
 	{
-		levelIndex=PlayerPrefs.GetInt("levelNumber");
+		levelIndex = PlayerPrefs.GetInt("levelNumber");
 		switch (levelIndex) {
 		
 		case 0:

@@ -281,11 +281,11 @@ public class ShowResultLeague : MonoBehaviour {
 			{
 				if(i==0)
 				{
-					playerPositionPanel.transform.GetChild(0).GetComponent<Text>().text="Congratulation!!!! You Have Won The league";
+					playerPositionPanel.transform.GetChild(0).GetComponent<Text>().text="Congratulations!!!!  You Have Won The league";
 				}
 				else if(i==1)
 				{
-					playerPositionPanel.transform.GetChild(0).GetComponent<Text>().text="Good Job, You are Runners Up";
+					playerPositionPanel.transform.GetChild(0).GetComponent<Text>().text="Good Job! You are Runners Up";
 				}
 				else if(i==2)
 				{
