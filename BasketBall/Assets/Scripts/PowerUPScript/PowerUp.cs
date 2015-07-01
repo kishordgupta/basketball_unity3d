@@ -7,6 +7,8 @@ public class PowerUp : MonoBehaviour {
 	public GameObject playerObject;
 	public GameObject opponentObject;
 
+	public AudioClip CoinTouch;
+
 	void Start () {
 	
 	}
@@ -18,6 +20,9 @@ public class PowerUp : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
+
+		AudioSource.PlayClipAtPoint(CoinTouch,transform.position);
+
 		if(other.gameObject.CompareTag("greenIce"))
 		{
 		SetGreenIceCondition(other);

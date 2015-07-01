@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 		//public Country[] countryArray;
 		public Opponent opponentTeam;
 		public	Vector3 playerPosition;
+	    public AudioClip playerJump;
 	//	public static List<TournamentResult> roundTournamentResultList= new List<TournamentResult>();
 		
 		
@@ -99,6 +100,7 @@ public class Player : MonoBehaviour
 		void Jump ()
 		{
 				iTween.MoveBy (this.gameObject, iTween.Hash ("y", distanceJump, "speed", speedJump));
+				AudioSource.PlayClipAtPoint (playerJump, transform.position);
 		}
 
 		void Update ()
