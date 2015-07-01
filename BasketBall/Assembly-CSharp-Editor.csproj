@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{1264C009-0A2F-92D2-17E8-C39A52620C30}</ProjectGuid>
+	<ProjectGuid>{86EF4A5D-9FD3-D302-A446-6933986D9368}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -60,10 +60,10 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="BehaviorDesignerEditor">
- <HintPath>/Users/kishordattagupta/Project/30.6.bb/Assets/Behavior Designer/Editor/BehaviorDesignerEditor.dll</HintPath>
+ <HintPath>/Users/kishordattagupta/basketaball/BasketBall/Assets/Behavior Designer/Editor/BehaviorDesignerEditor.dll</HintPath>
  </Reference>
  <Reference Include="BehaviorDesignerRuntime">
- <HintPath>/Users/kishordattagupta/Project/30.6.bb/Assets/Behavior Designer/Runtime/BehaviorDesignerRuntime.dll</HintPath>
+ <HintPath>/Users/kishordattagupta/basketaball/BasketBall/Assets/Behavior Designer/Runtime/BehaviorDesignerRuntime.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -71,13 +71,13 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{E1B397E6-FDF2-A777-349E-A6A5F73390AC}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{2508601A-B65E-3684-425C-B615A1346A52}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{7547DF09-45DF-257E-3714-FA438B7A0D25}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{05A53AF0-D351-C13E-8057-D830A87E6DDA}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript.unityproj">
-      <Project>{A24A4716-30F6-BE4B-5F5D-3223C1AB0561}</Project>      <Name>Assembly-UnityScript</Name>    </ProjectReference>
+      <Project>{9579CEF8-9CDF-DEEB-1F2E-71D307512ED8}</Project>      <Name>Assembly-UnityScript</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
-      <Project>{1498C0D9-602B-1271-D636-9AF8DD1FEA43}</Project>      <Name>Assembly-CSharp-Editor-firstpass</Name>    </ProjectReference>
+      <Project>{70699F52-4E39-70F7-EF1B-2E79A61681DC}</Project>      <Name>Assembly-CSharp-Editor-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

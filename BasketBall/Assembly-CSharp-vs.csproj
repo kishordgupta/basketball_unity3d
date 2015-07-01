@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{7547DF09-45DF-257E-3714-FA438B7A0D25}</ProjectGuid>
+	<ProjectGuid>{05A53AF0-D351-C13E-8057-D830A87E6DDA}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -608,12 +608,12 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="BehaviorDesignerRuntime">
- <HintPath>/Users/kishordattagupta/Project/30.6.bb/Assets/Behavior Designer/Runtime/BehaviorDesignerRuntime.dll</HintPath>
+ <HintPath>/Users/kishordattagupta/basketaball/BasketBall/Assets/Behavior Designer/Runtime/BehaviorDesignerRuntime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{E1B397E6-FDF2-A777-349E-A6A5F73390AC}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+      <Project>{2508601A-B65E-3684-425C-B615A1346A52}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

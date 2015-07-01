@@ -19,6 +19,12 @@ public class Ball : MonoBehaviour
 	public static string str1;
 	public static string str2;
 
+	public static float xForce = 3.0f;
+	public static float yForce = 3.0f;
+
+	public Vector2 velocity;
+	public Rigidbody2D baskBall;
+
 	public static bool playerHand=true;
 
 	public AudioClip[] BallTouch;
@@ -117,6 +123,7 @@ public class Ball : MonoBehaviour
 			GameEventManager.TriggerGamePointCalculation ();
 			GameEventManager.TriggerGameStart ();
 			oppnentScore++;
+
 			AudioSource.PlayClipAtPoint(BallTouch[2],transform.position);
 			setBallPosition();
 
@@ -132,6 +139,7 @@ public class Ball : MonoBehaviour
 			GameEventManager.TriggerGamePointCalculation ();
 			GameEventManager.TriggerGameStart ();
 			playerScore++;
+
 			AudioSource.PlayClipAtPoint(BallTouch[2],transform.position);
 			scorepause();
 			str1 = playerScore.ToString();
@@ -152,7 +160,8 @@ public class Ball : MonoBehaviour
 		if (other.collider.CompareTag ("Hand")) {
 						//						
 						print ("colliding hands");
-						rigidbody2D.AddForce (new Vector3 (3.00f, 3.00f, 0) * force, ForceMode2D.Impulse);
+						rigidbody2D.AddForce (new Vector2 (xForce, yForce) * force, ForceMode2D.Impulse);
+
 						playerHand = true;
 
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
@@ -205,11 +214,18 @@ public class Ball : MonoBehaviour
 						rigidbody2D.AddTorque (3.0f, ForceMode2D.Force);
 				} else if (other.collider.CompareTag ("Hoop")) {
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
+			print("at last");
+			rigidbody2D.velocity = new Vector2 (0.0f, -1.0f);
+
+			rigidbody2D.AddForce (new Vector2 (0.0f, 0f) * 0, ForceMode2D.Force); 
+//			baskBall.drag = 3.0f;
 		
 
 //						rigidbody2D.AddForce (new Vector3 (0.00f, 0.0000005f, 0f) * 0.000000001f, ForceMode2D.Force);
 				} else if (other.collider.CompareTag ("Wall")) {
-						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
+						
+			rigidbody2D.AddTorque (1.0f, ForceMode2D.Force);		
+			AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
 				
 		}
 
