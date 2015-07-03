@@ -95,7 +95,7 @@ public class ChampionshipMain : MonoBehaviour {
 			}
 			else
 			{
-				print ("for test only in Championship class");
+//				print ("for test only in Championship class");
 			}
 		}
 		

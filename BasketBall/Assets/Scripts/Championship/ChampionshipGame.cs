@@ -115,12 +115,33 @@ public class ChampionshipGame : MonoBehaviour {
 					break;
 				}
 			}
-			if(ownCountry)
+			if(ownCountry && ChampionshipMain.championshipCountryList.Count > 2)
 			{
-				Time.timeScale=1.0f;
-				GenerateChampionshipResult();
-				Application.LoadLevel(1);
+
+
+			
+		
+					Time.timeScale=1.0f;
+					GenerateChampionshipResult();
+					print (ChampionshipMain.championshipCountryList.Count + "champ");
+					Application.LoadLevel(1);
+		
+
 			}
+
+			else if (ownCountry)
+			{
+				playerPositionPanel.GetComponent<CanvasGroup>().alpha=1.0f;
+				playerPositionPanel.GetComponent<CanvasGroup>().interactable=true;
+				playerPositionPanel.GetComponent<CanvasGroup>().blocksRaycasts=true;
+				
+				this.gameObject.GetComponent<CanvasGroup>().alpha=0.0f;
+				this.gameObject.GetComponent<CanvasGroup>().interactable=false;
+				this.gameObject.GetComponent<CanvasGroup>().blocksRaycasts=false;
+
+				positionText.GetComponent<Text>().text="You are the Champion!!!";
+			}
+
 			else
 			{
 				playerPositionPanel.GetComponent<CanvasGroup>().alpha=1.0f;

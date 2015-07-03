@@ -66,7 +66,7 @@ public class Hand : MonoBehaviour
 	{
 		this.gameObject.collider2D.enabled = true;
 		this.gameObject.tag="HandIdle";
-		print("bAckHand");
+//		print("bAckHand");
 	}
 }
 

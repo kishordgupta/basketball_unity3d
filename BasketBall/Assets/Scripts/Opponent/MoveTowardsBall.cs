@@ -38,7 +38,7 @@ public class MoveTowardsBall : Action
 
 		IEnumerator coRoutine ()
 		{
-				yield return new WaitForSeconds (0.1f);
+				yield return new WaitForSeconds (0.05f);
 				iTween.RotateTo (rotateObject.gameObject, iTween.Hash ("z", -1, "time", 1f));
 				//this.gameObject.collider2D.enabled = false;
 				//iTween.RotateTo (rotateObject.gameObject, iTween.Hash ("z", -1, "time", 0.5f, "oncomplete","BackHandRotationComplete","oncompletetarget",this.gameObject));
