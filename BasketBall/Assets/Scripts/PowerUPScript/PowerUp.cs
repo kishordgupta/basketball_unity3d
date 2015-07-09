@@ -1,11 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PowerUp : MonoBehaviour {
 
 
 	public GameObject playerObject;
 	public GameObject opponentObject;
+
+	public GameObject AnimObj;
+
+	public Button speeding;
+	public Button jumping;
+	public Button icingOppo;
+	public Button Growing;
+
 
 	public AudioClip CoinTouch;
 
@@ -38,7 +47,7 @@ public class PowerUp : MonoBehaviour {
 
 		else if(other.gameObject.CompareTag("greenGrow"))
 		{
-			SetRedGrowCondition(other);
+			SetGreenGrowCondition(other);
 		}
 
 		else if(other.gameObject.CompareTag("redIce"))
@@ -76,12 +85,21 @@ public class PowerUp : MonoBehaviour {
 	}
 
 
+
+
 	void SetGreenIceCondition(Collider2D ice)
 	{
 		if(Ball.playerHand)
 		{
-			MoveTowardsBall.speed=0.0f;
-			StartCoroutine(GreenIceWait());
+			icingOppo.GetComponent<CanvasGroup>().alpha=1.0f;
+			icingOppo.GetComponent<CanvasGroup>().interactable=true;
+			icingOppo.GetComponent<CanvasGroup>().blocksRaycasts=true;
+
+
+
+
+//			MoveTowardsBall.speed=0.0f;
+//			StartCoroutine(GreenIceWait());
 		}
 		
 		else if(!Ball.playerHand)
@@ -96,6 +114,19 @@ public class PowerUp : MonoBehaviour {
 
 	}
 
+	public void IcePlayer()
+	{
+		icingOppo.GetComponent<CanvasGroup>().alpha=0.2f;
+		icingOppo.GetComponent<CanvasGroup>().interactable=false;
+		icingOppo.GetComponent<CanvasGroup>().blocksRaycasts=false;
+
+		AnimObj.SetActive (true);
+		
+		animation.Play("pistol");
+		MoveTowardsBall.speed=0.0f;
+		StartCoroutine(GreenIceWait());
+	}
+	
 	IEnumerator GreenIceWait()
 	{
 		yield return new WaitForSeconds(5f);
@@ -111,16 +142,35 @@ public class PowerUp : MonoBehaviour {
 
 	}
 
+	IEnumerator AnimWait()
+	{
+				yield return new WaitForSeconds (2f);
+		}
+
+
 	void SetGreenSpeedCondition(Collider2D speed)
 	{
-		if(Ball.playerHand)
-		{
-			Player.speed=6.0f;
-			Player.distanceJump=2.0f;
-			Player.speedJump=2.0f;
-			StartCoroutine(GreenIceWait());
+
+		if (Ball.playerHand) {
+
+		speeding.GetComponent<CanvasGroup>().alpha=1.0f;
+		speeding.GetComponent<CanvasGroup>().interactable=true;
+		speeding.GetComponent<CanvasGroup>().blocksRaycasts=true;
+
+
 		}
-		
+
+
+
+
+//		if(Ball.playerHand)
+//		{
+//			Player.speed=6.0f;
+//			Player.distanceJump=2.0f;
+//			Player.speedJump=2.0f;
+//			StartCoroutine(GreenIceWait());
+//		}
+//		
 		else if(!Ball.playerHand)
 		{
 			MoveTowardsBall.speed=6.0f;
@@ -130,33 +180,87 @@ public class PowerUp : MonoBehaviour {
 
 	}
 
+
+	public void SpeedPlayer()
+	{
+		speeding.GetComponent<CanvasGroup>().alpha=0.2f;
+		speeding.GetComponent<CanvasGroup>().interactable=false;
+		speeding.GetComponent<CanvasGroup>().blocksRaycasts=false;
+
+		animation.Play ("pistol");
+					Player.speed=6.0f;
+					Player.distanceJump=2.0f;
+					Player.speedJump=2.0f;
+					StartCoroutine(GreenIceWait());
+	}
+
+
+
 	void SetGreenJumpCondition(Collider2D jump)
 	{
-		if(Ball.playerHand)
-		{
-			Player.speed=3.0f;
-			Player.distanceJump=4.0f;
-			Player.speedJump=4.0f;
-			StartCoroutine(GreenIceWait());
-		}
-		
+
+		if (Ball.playerHand) {
+						jumping.GetComponent<CanvasGroup> ().alpha = 1.0f;
+						jumping.GetComponent<CanvasGroup> ().interactable = true;
+						jumping.GetComponent<CanvasGroup> ().blocksRaycasts = true;
+
+				}
+
+
+//		if(Ball.playerHand)
+//		{
+//			Player.speed=3.0f;
+//			Player.distanceJump=4.0f;
+//			Player.speedJump=4.0f;
+//			StartCoroutine(GreenIceWait());
+//		}
+////		
 		else if(!Ball.playerHand)
 		{
 			MoveTowardsBall.speed=8.0f;
 			StartCoroutine(GreenIceWait());
 		}
 		Destroy(jump.gameObject);
-		
+//		
 	}
+
+	public void jumpPlayer()
+	{
+		jumping.GetComponent<CanvasGroup>().alpha=0.2f;
+		jumping.GetComponent<CanvasGroup>().interactable=false;
+		jumping.GetComponent<CanvasGroup>().blocksRaycasts=false;
+
+		animation.Play ("pistol");
+
+		Player.speed=3.0f;
+		Player.distanceJump=4.0f;
+		Player.speedJump=4.0f;
+			StartCoroutine(GreenIceWait());
+
+		}
+
+
+
+
 
 	void SetGreenGrowCondition(Collider2D grow)
 	{
+
+
+
+
 		if(Ball.playerHand)
 		{
-			playerObject.transform.localScale=new Vector3(1.5f,1.5f,1);
-			StartCoroutine(GreenIceWait());
+			
+			Growing.GetComponent<CanvasGroup>().alpha=1.0f;
+			Growing.GetComponent<CanvasGroup>().interactable=true;
+			Growing.GetComponent<CanvasGroup>().blocksRaycasts=true;
+
+
+//			playerObject.transform.localScale=new Vector3(1.5f,1.5f,1);
+//			StartCoroutine(GreenIceWait());
 		}
-		
+//		
 		else if(!Ball.playerHand)
 		{
 			opponentObject.transform.localScale= new Vector3(1.5f,1.5f,1f);
@@ -165,6 +269,17 @@ public class PowerUp : MonoBehaviour {
 		Destroy(grow.gameObject);
 		
 	}
+
+	public void GrowPlayer()
+	{
+		Growing.GetComponent<CanvasGroup>().alpha=0.2f;
+		Growing.GetComponent<CanvasGroup>().interactable=false;
+		Growing.GetComponent<CanvasGroup>().blocksRaycasts=false;
+
+
+		playerObject.transform.localScale=new Vector3(1.5f,1.5f,1);
+					StartCoroutine(GreenIceWait());
+		}
 
 	void SetRedSpeedCondition(Collider2D speedRed)
 	{
@@ -256,4 +371,6 @@ public class PowerUp : MonoBehaviour {
 			Destroy(ballSmall.gameObject);
 		
 	}
+
+
 }

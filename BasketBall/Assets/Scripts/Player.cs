@@ -15,20 +15,40 @@ public class Player : MonoBehaviour
 		//public Sprite[] faceCountryList; 
 		//public Country[] countryArray;
 		public Opponent opponentTeam;
-		public	Vector3 playerPosition;
+		public static	Vector2 playerPosition;
 	    public AudioClip playerJump;
 	//	public static List<TournamentResult> roundTournamentResultList= new List<TournamentResult>();
 		
+
+//	public Animation SpeedFire;
 		
 	public void GameStart ()
 	{
+		playerPosition = new Vector2 (-5f, -1.8f);
+
 		gameObject.transform.position= playerPosition;
 	
 
 	}
 
-
-
+//	public void SpeedAnim()
+//	{
+//		animation["SpeedFire"].wrapMode = WrapMode.Once;
+//		animation.Play("SpeedFire");
+//	}
+//
+//	public void JumpAnim()
+//	{
+//		animation[1].wrapMode = WrapMode.Once;
+//		animation.Play("Fire");
+//	}
+//
+//	public void IceAnim()
+//	{
+//		animation["BldFl"].wrapMode = WrapMode.Once;
+//		animation.Play("BldFl");
+//	}
+	
 	void OnDisable ()
 	{
 		GameEventManager.GameStart -= GameStart;
