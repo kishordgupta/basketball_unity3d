@@ -129,8 +129,16 @@ public class Ball : MonoBehaviour
 		if (other.gameObject.tag == "GoalBar") {
 			GameEventManager.TriggerGamePointCalculation ();
 			GameEventManager.TriggerGameStart ();
-			oppnentScore = oppnentScore + 2;
 
+			if(ownHalf == true && !playerHand)
+			{
+			oppnentScore = oppnentScore + 3;
+			}
+
+			else
+			{
+				oppnentScore = oppnentScore + 2;
+			}
 			AudioSource.PlayClipAtPoint(BallTouch[2],transform.position);
 			setBallPosition();
 
@@ -144,51 +152,58 @@ public class Ball : MonoBehaviour
 			
 		} 
 
-		else  if (other.gameObject.tag == "GoalBar" && ownHalf == true) {
+//		else  if (other.gameObject.tag == "GoalBar" && ownHalf == true) {
+//			GameEventManager.TriggerGamePointCalculation ();
+//			GameEventManager.TriggerGameStart ();
+//			oppnentScore = oppnentScore + 3;
+//			print (ownHalf);
+//			
+//			AudioSource.PlayClipAtPoint(BallTouch[2],transform.position);
+//			scorepause();
+//			str2 = oppnentScore.ToString();
+//			//gameObject.GetComponent<Text>().text = str1;
+//			
+//			
+//			
+//		}
+
+
+		else  if (other.gameObject.tag == "OpponentGoalBar") {
 			GameEventManager.TriggerGamePointCalculation ();
 			GameEventManager.TriggerGameStart ();
-			oppnentScore = oppnentScore + 3;
-			print (ownHalf);
-			
-			AudioSource.PlayClipAtPoint(BallTouch[2],transform.position);
-			scorepause();
-			str2 = oppnentScore.ToString();
-			//gameObject.GetComponent<Text>().text = str1;
-			
-			
-			
-		}
-
-
-		else  if (other.gameObject.tag == "OpponentGoalBar" && ownHalf == false) {
-			GameEventManager.TriggerGamePointCalculation ();
-			GameEventManager.TriggerGameStart ();
-			playerScore = playerScore + 2;
-			print (ownHalf);
-			
-
-			AudioSource.PlayClipAtPoint(BallTouch[2],transform.position);
-			scorepause();
-			str1 = playerScore.ToString();
-			//gameObject.GetComponent<Text>().text = str1;
-			
-
-			
-		}
-
-		else  if (other.gameObject.tag == "OpponentGoalBar" && ownHalf == true) {
-			GameEventManager.TriggerGamePointCalculation ();
-			GameEventManager.TriggerGameStart ();
+			if(ownHalf == true && playerHand){
 			playerScore = playerScore + 3;
-			
+			print (ownHalf);
+			}
+			else
+			{
+				playerScore = playerScore + 2;
+				print (ownHalf);
+
+			}
+
 			AudioSource.PlayClipAtPoint(BallTouch[2],transform.position);
 			scorepause();
 			str1 = playerScore.ToString();
 			//gameObject.GetComponent<Text>().text = str1;
 			
-			
+
 			
 		}
+
+//		else  if (other.gameObject.tag == "OpponentGoalBar" && ownHalf == true) {
+//			GameEventManager.TriggerGamePointCalculation ();
+//			GameEventManager.TriggerGameStart ();
+//			playerScore = playerScore + 2;
+//			
+//			AudioSource.PlayClipAtPoint(BallTouch[2],transform.position);
+//			scorepause();
+//			str1 = playerScore.ToString();
+//			//gameObject.GetComponent<Text>().text = str1;
+//			
+//			
+//			
+//		}
 		
 	}
 	
@@ -204,55 +219,56 @@ public class Ball : MonoBehaviour
 						rigidbody2D.AddForce (new Vector2 (xForce, yForce) * force, ForceMode2D.Impulse);
 
 						playerHand = true;
-			ownHalf = false;
+						ownHalf = false;
 
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
 			
 			
 				} else if (other.collider.CompareTag ("OpponentHand")) {
 						
-						rigidbody2D.AddForce (new Vector2 (-3.50f, 3.00f) * force, ForceMode2D.Impulse);
+						rigidbody2D.AddForce (new Vector2 (-1.50f, 1.50f) * force, ForceMode2D.Impulse);
 						playerHand = false;
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
-			ownHalf = false;
+						ownHalf = false;
 
 
 
 
 				} else if (other.collider.CompareTag ("HandIdle")) {
 			
-						rigidbody2D.AddForce (new Vector2 (0, 0.05f) * force, ForceMode2D.Force);
+//						rigidbody2D.AddForce (new Vector2 (0, 0.05f) * force, ForceMode2D.Force);
 //						rigidbody2D.velocity = new Vector2 (0f, 3.0f);
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
-			ownHalf = false;
+						ownHalf = false;
 
 
 				} else if (other.collider.CompareTag ("Player")) {
 						//print ("colliding  " + other.collider.tag);
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
 
-						rigidbody2D.AddForce (new Vector2 (0f, 1f) * force, ForceMode2D.Force);
+//						rigidbody2D.AddForce (new Vector2 (0f, 1f) * force, ForceMode2D.Force);
 						playerHand = true;
-			ownHalf = false;
+						ownHalf = false;
 
 
 				} else if (other.collider.CompareTag ("Opponent")) {
 						//print ("colliding  " + other.collider.tag);
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
-						rigidbody2D.AddForce (new Vector2 (0f, 1f) * force, ForceMode2D.Force);	
+//						rigidbody2D.AddForce (new Vector2 (0f, 1f) * force, ForceMode2D.Force);
+			rigidbody2D.velocity=new Vector2 (-3f,3f);
 //						
 						playerHand = false;
-			ownHalf = false;
+						ownHalf = false;
 
 				} else if (other.collider.CompareTag ("JumperLeft")) {
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
 //						rigidbody2D.AddForce (new Vector3 (8.5f, 5, 0) * jumpForce, ForceMode2D.Impulse);
-						rigidbody2D.velocity = new Vector2 (5.0f, 5.0f);
+//						rigidbody2D.velocity = new Vector2 (5.0f, 5.0f);
 				
 				} else if (other.collider.CompareTag ("JumperRight")) {
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
 //						rigidbody2D.AddForce (new Vector3 (-8.5f, 5, 0) * jumpForce, ForceMode2D.Impulse);
-						rigidbody2D.velocity = new Vector2 (-5.0f, 5.0f);
+//						rigidbody2D.velocity = new Vector2 (-5.0f, 5.0f);
 
 
 				} else if (other.collider.CompareTag ("jumperwall")) {
@@ -273,17 +289,19 @@ public class Ball : MonoBehaviour
 				} else if (other.collider.CompareTag ("Wall")) {
 						
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
+			ownHalf = false;
 
 				} else if (other.collider.CompareTag ("Floor")) {
-			
+						ownHalf = false;
 						//			rigidbody2D.AddTorque (0.05f, ForceMode2D.Force);	
-						rigidbody2D.AddForce (new Vector2 (0f, 5.5f) * force, ForceMode2D.Force);
+//						rigidbody2D.AddForce (new Vector2 (0f, 3.5f) * force, ForceMode2D.Force);
 //						rigidbody2D.velocity = new Vector2 (0.0f, 5.0f);
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
-						ownHalf = false;
+						
 		} else if (other.collider.CompareTag ("Player") && other.collider.CompareTag ("Opponent") ) {
 				
-			rigidbody2D.velocity = new Vector2 (0.0f, 5.0f);
+//			rigidbody2D.velocity = new Vector2 (0.0f, 5.0f);
+
 			print ("like this");
 			ownHalf = false;
 		}
@@ -295,6 +313,7 @@ public class Ball : MonoBehaviour
 		else if (other.collider.CompareTag ("MidBorder")) {
 			
 			ownHalf = true;
+			print(ownHalf);
 		}
 
 		

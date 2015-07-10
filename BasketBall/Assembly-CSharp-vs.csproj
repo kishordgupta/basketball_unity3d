@@ -46,6 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AnimObj2.cs" />
+     <Compile Include="Assets\AnimObj3.cs" />
+     <Compile Include="Assets\AnimObj4.cs" />
+     <Compile Include="Assets\AnimationActive.cs" />
      <Compile Include="Assets\BackButtonClickScript.cs" />
      <Compile Include="Assets\BackButtonTapped.cs" />
      <Compile Include="Assets\Behavior Designer\Runtime\Actions\BehaviorTreeReference.cs" />

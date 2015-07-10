@@ -14,9 +14,15 @@ public class MainMenuUI : MonoBehaviour {
 	
 	public Button BackToMainMenu;
 	public Button BackShop; 
-	
+	public Button CreateServer;
+	public Button ConnectServer;
+
 	public GameObject SinglePlayerPanel;
 	public GameObject PurchasePanel;
+	public GameObject MultiPlayerPanel;
+	public GameObject SearchDevicePanel;
+
+
 	//	till here
 
 
@@ -27,12 +33,15 @@ public Button ChampionShipButton;
 public Button TournamentButton;
 public Button InstructionButton;
 public Button SettingsButton;
+
+
 public GameObject countryListPanel;
 public GameObject arcadeModePanel;
 public GameObject instructionPanel;
 
 public Button backMenuInstruction;
 public Button backClassicButton;
+
 
 public Button backSettingToMenu;
 
@@ -149,6 +158,16 @@ public GameObject fixturePanel;
 			instructionPanel.GetComponent<CanvasGroup> ().blocksRaycasts = true;
 		});
 
+		MultiPlayerMode.onClick.AddListener(()=>{
+			bgPanel.GetComponent<CanvasGroup> ().alpha = 0f;
+			bgPanel.GetComponent<CanvasGroup> ().interactable = false;
+			bgPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
+			
+			MultiPlayerPanel.GetComponent<CanvasGroup> ().alpha = 1f;
+			MultiPlayerPanel.GetComponent<CanvasGroup> ().interactable = true;
+			MultiPlayerPanel.GetComponent<CanvasGroup> ().blocksRaycasts = true;
+		});
+
 		ClassicButton.onClick.AddListener (() => {
 			
 			PlayerPrefs.SetInt("modeName",1);
@@ -240,6 +259,17 @@ public GameObject fixturePanel;
 			PurchasePanel.GetComponent<CanvasGroup> ().alpha = 1f;
 			PurchasePanel.GetComponent<CanvasGroup> ().interactable = true;
 			PurchasePanel.GetComponent<CanvasGroup> ().blocksRaycasts = true;
+		});
+
+
+		ConnectServer.onClick.AddListener (()=>{
+			MultiPlayerPanel.GetComponent<CanvasGroup> ().alpha = 0f;
+			MultiPlayerPanel.GetComponent<CanvasGroup> ().interactable = false;
+			MultiPlayerPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
+			
+			SearchDevicePanel.GetComponent<CanvasGroup> ().alpha = 1f;
+			SearchDevicePanel.GetComponent<CanvasGroup> ().interactable = true;
+			SearchDevicePanel.GetComponent<CanvasGroup> ().blocksRaycasts = true;
 		});
 
 

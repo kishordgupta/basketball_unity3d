@@ -14,7 +14,7 @@ public class MoveTowardsBall : Action
 		public override TaskStatus OnUpdate ()
 		{
 
-				if (Vector3.SqrMagnitude (transform.position - target.Value.position) < 1f) {
+				if (Vector3.SqrMagnitude (transform.position - target.Value.position) < 4f) {
 						Attack ();
 //						//						return TaskStatus.Running;
 						return TaskStatus.Running;
@@ -32,13 +32,13 @@ public class MoveTowardsBall : Action
 		public void RotateBackAgain ()
 		{
 				MonoBehaviour.print ("working in rotation back");
-				iTween.RotateTo (rotateObject.gameObject, iTween.Hash ("z", -1, "time", 1f));
+				iTween.RotateTo (rotateObject.gameObject, iTween.Hash ("z", -1, "time", 0.25f));
 				
 		}
 
 		IEnumerator coRoutine ()
 		{
-				yield return new WaitForSeconds (0.05f);
+				yield return new WaitForSeconds (0.2f);
 				iTween.RotateTo (rotateObject.gameObject, iTween.Hash ("z", -1, "time", 1f));
 				//this.gameObject.collider2D.enabled = false;
 				//iTween.RotateTo (rotateObject.gameObject, iTween.Hash ("z", -1, "time", 0.5f, "oncomplete","BackHandRotationComplete","oncompletetarget",this.gameObject));

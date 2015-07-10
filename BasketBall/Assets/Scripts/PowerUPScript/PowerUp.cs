@@ -120,9 +120,11 @@ public class PowerUp : MonoBehaviour {
 		icingOppo.GetComponent<CanvasGroup>().interactable=false;
 		icingOppo.GetComponent<CanvasGroup>().blocksRaycasts=false;
 
-		AnimObj.SetActive (true);
+//		AnimObj.SetActive (true);
+//		StartCoroutine (AnimWait ());
+//		Destroy (AnimObj);
+
 		
-		animation.Play("pistol");
 		MoveTowardsBall.speed=0.0f;
 		StartCoroutine(GreenIceWait());
 	}
@@ -187,8 +189,12 @@ public class PowerUp : MonoBehaviour {
 		speeding.GetComponent<CanvasGroup>().interactable=false;
 		speeding.GetComponent<CanvasGroup>().blocksRaycasts=false;
 
-		animation.Play ("pistol");
-					Player.speed=6.0f;
+//		AnimObj.SetActive (true);
+//		StartCoroutine (AnimWait ());
+//		Destroy (AnimObj);
+
+//		animation.Play ("pistol");
+					Player.speed=10.0f;
 					Player.distanceJump=2.0f;
 					Player.speedJump=2.0f;
 					StartCoroutine(GreenIceWait());
@@ -230,7 +236,11 @@ public class PowerUp : MonoBehaviour {
 		jumping.GetComponent<CanvasGroup>().interactable=false;
 		jumping.GetComponent<CanvasGroup>().blocksRaycasts=false;
 
-		animation.Play ("pistol");
+//		AnimObj.SetActive (true);
+//		StartCoroutine (AnimWait ());
+//		Destroy (AnimObj);
+
+//		animation.Play ("pistol");
 
 		Player.speed=3.0f;
 		Player.distanceJump=4.0f;
@@ -275,6 +285,10 @@ public class PowerUp : MonoBehaviour {
 		Growing.GetComponent<CanvasGroup>().alpha=0.2f;
 		Growing.GetComponent<CanvasGroup>().interactable=false;
 		Growing.GetComponent<CanvasGroup>().blocksRaycasts=false;
+
+//		AnimObj.SetActive (true);
+//		StartCoroutine (AnimWait ());
+//		Destroy (AnimObj);
 
 
 		playerObject.transform.localScale=new Vector3(1.5f,1.5f,1);
