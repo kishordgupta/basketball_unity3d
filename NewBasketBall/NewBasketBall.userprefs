@@ -1,0 +1,38 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/score2.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Managers/MainMenuUI.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MultiPlayerScriptss/NetworkManagerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Shop/ExampleAssets.cs" Line="1" Column="1" />
+      <File FileName="Assets/Plugins/Soomla/Core/SoomlaUtils.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Shop/ExampleWindow.cs" Line="88" Column="72" />
+      <File FileName="Assets/Plugins/Soomla/Store/data/VirtualItemStorage.cs" Line="1" Column="1" />
+      <File FileName="Assets/BluetoothMultiplayerAndroid/Demos/Assets/Scripts/BluetoothExamplesTools.cs" Line="1" Column="1" />
+      <File FileName="Assets/PurchaseManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Plugins/Soomla/Store/data/VirtualCurrencyStorage.cs" Line="1" Column="1" />
+      <File FileName="Assets/Plugins/Soomla/Store/StoreInventory.cs" Line="1" Column="1" />
+      <File FileName="Assets/Plugins/Soomla/Store/IStoreAssets.cs" Line="1" Column="1" />
+      <File FileName="Assets/Plugins/Soomla/Store/data/StoreInfo.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Ball.cs" Line="22" Column="32" />
+      <File FileName="Assets/Scripts/Back.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MultiPlayerScriptss/MultiPlayerTimer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MultiPlayerScriptss/TimerAttached.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PowerUPScript/PowerUp.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ShowResult/ShowResultLeague.cs" Line="1" Column="1" />
+      <File FileName="Assets/score.cs" Line="14" Column="17" />
+      <File FileName="Assets/score2.cs" Line="13" Column="3" />
+      <File FileName="Assets/winLoss.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/SpriteChange.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ClassicMode/ClassicModeMain.cs" Line="80" Column="56" />
+      <File FileName="Assets/Scripts/ClassicMode/ClassicLevelChoose.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Opponent/Opponent.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/League/CountrySelect.cs" Line="210" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
