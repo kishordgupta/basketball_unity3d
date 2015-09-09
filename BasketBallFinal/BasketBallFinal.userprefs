@@ -1,10 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Ball.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MultiPlayerScriptss/NetworkManagerScript.cs">
     <Files>
       <File FileName="Assets/Scripts/Ball.cs" Line="14" Column="32" />
-      <File FileName="Assets/Scripts/Opponent/AttackBall.cs" Line="19" Column="14" />
-      <File FileName="Assets/Scripts/Opponent/MoveTowardsBall.cs" Line="9" Column="32" />
+      <File FileName="Assets/Scripts/Opponent/AttackBall.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Opponent/MoveTowardsBall.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Opponent/SpriterendererCheck.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Managers/MainMenuUI.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PowerUPScript/PowerGeneratorScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PowerUPScript/PowerUp.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Shop/ExampleWindow.cs" Line="93" Column="74" />
+      <File FileName="Assets/Scripts/MultiPlayerScriptss/NetworkManagerScript.cs" Line="122" Column="73" />
+      <File FileName="Assets/Scripts/SoundOnOff.cs" Line="22" Column="1" />
+      <File FileName="Assets/BluetoothMultiplayerAndroid/Demos/Assets/Scripts/BluetoothExamplesTools.cs" Line="9" Column="27" />
+      <File FileName="../../Documents/Assets 2/AndroidBluetoothMultiplayer/Demos/Assets/Scripts/BluetoothMultiplayerDemoGui.cs" Line="115" Column="66" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

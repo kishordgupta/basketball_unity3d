@@ -102,7 +102,12 @@ public class NetworkManagerScript : MonoBehaviour {
 		if (_initResult) {
 			// If there is no current Bluetooth connectivity
 			if (BluetoothMultiplayerAndroid.CurrentMode() == BluetoothMultiplayerModes.None) {
-				if (GUI.Button(new Rect(175, 75, 150, 50), "Create Game")) {
+				
+					float top = Screen.height/7;
+//					float left = Screen.width/4;
+					GUI.skin.button.fontSize = Mathf.Min(Screen.width,Screen.height)/50;
+					Debug.Log("font size:" + Mathf.Min(Screen.width,Screen.height)/35);
+				if (GUI.Button(new Rect(0f, 10, 150, 50), "Create Game")) {
 					// If Bluetooth is enabled, then we can do something right on
 					if (BluetoothMultiplayerAndroid.IsBluetoothEnabled()) {
 						BluetoothMultiplayerAndroid.RequestDiscoverable(120); 
@@ -114,8 +119,8 @@ public class NetworkManagerScript : MonoBehaviour {
 						BluetoothMultiplayerAndroid.RequestDiscoverable(120);
 					}
 				}
-				
-				if (GUI.Button(new Rect(175, 135, 150, 50), "Join The Game")) {
+					GUI.skin.button.fontSize = Mathf.Min(Screen.width,Screen.height)/50;
+					if (GUI.Button(new Rect(0f, 70, 150, 50), "Join Game")) {
 					// If Bluetooth is enabled, then we can do something right on
 					if (BluetoothMultiplayerAndroid.IsBluetoothEnabled()) {
 						Network.Disconnect(); // Just to be sure
@@ -135,6 +140,7 @@ public class NetworkManagerScript : MonoBehaviour {
 			}
 		} else {
 			// Showing message if initialization failed for some reason
+				GUI.skin.label.fontSize = Mathf.Min(Screen.width,Screen.height)/25;
 			GUI.Label(new Rect(10, 10, Screen.width / scaleFactor, 100), "Bluetooth not available. Are you running this on Bluetooth-capable Android device and AndroidManifest.xml is set up correctly?");
 		}
 		
