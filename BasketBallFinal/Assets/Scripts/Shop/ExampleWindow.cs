@@ -22,7 +22,7 @@ namespace Soomla.Store.Example
 		public GUISkin CustomGuiSkin;
 		public static int CurrentBalance; 
 
-
+		public static int playerPointCount;
 
 		void Awake(){
 			if(instance == null){ 	//making sure we only initialize one instance.
@@ -84,7 +84,8 @@ namespace Soomla.Store.Example
 			if (MainMenuUI.shopCreate) {
 
 				int BoxWidth = Screen.width/5;
-				CurrentBalance = VirtualItemStorage.CoinStorage - PurchaseManager.TotalExpense;
+				playerPointCount = timer.playerPoint + VirtualItemStorage.CoinStorage;
+				CurrentBalance = playerPointCount - PurchaseManager.TotalExpense;
 				GUI.skin.label.fontSize = Mathf.Min(Screen.width,Screen.height)/20;
 				GUI.Label(new Rect(Screen.width - BoxWidth, 10, BoxWidth, Screen.height/4),"Current Coins:" + CurrentBalance);
 

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using Soomla;
+
+namespace Soomla.Store.Example{
 
 public class timer : MonoBehaviour {
 
@@ -12,6 +15,11 @@ public class timer : MonoBehaviour {
 	public Button pointTableButton;
 	public Button tryAgainButton;
 	public Button nextRoundTournamentButton;
+	public static int playerPoint;
+	public static string playerPointKey;
+
+		public GameObject GameOverWinCoinEarnPanel;
+		public GameObject GameOverLossCoinDeductionPanel;
 
 	public GameObject championshipGameOverPanel;
 
@@ -27,7 +35,15 @@ public class timer : MonoBehaviour {
 
 		boolTimer=true;
 	
+		playerPoint = PlayerPrefs.GetInt (playerPointKey, 0);
 
+			GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().alpha = 0f;
+			GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().interactable = false;
+			GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
+
+			GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().alpha = 0f;
+			GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().interactable = false;
+			GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
 
 	}
 	
@@ -58,6 +74,21 @@ public class timer : MonoBehaviour {
 				break;
 			}
 			boolTimer = false;
+				if(Ball.playerScore > Ball.oppnentScore)
+				{
+					playerPoint +=3;
+					GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().alpha = 1f;
+					GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().interactable = true;
+					GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().blocksRaycasts = true;
+				}
+				else if(Ball.playerScore < Ball.oppnentScore)
+				{
+					playerPoint --;
+					GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().alpha = 1f;
+					GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().interactable = true;
+					GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().blocksRaycasts = true;
+
+				}
 
 				} 
 		else if(boolTimer) 
@@ -69,6 +100,8 @@ public class timer : MonoBehaviour {
 			game.blocksRaycasts = false;
 		
 				}
+		PlayerPrefs.SetInt (playerPointKey, playerPoint);
+		PlayerPrefs.Save ();
 		}
 
 
@@ -153,4 +186,5 @@ public class timer : MonoBehaviour {
 	}
 
 
+}
 }

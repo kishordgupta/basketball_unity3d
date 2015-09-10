@@ -54,14 +54,14 @@ public class SpriterendererCheck : MonoBehaviour {
 		yield return new WaitForSeconds(1f);
 		EffectOnSpeeding.SetActive (false);
 		rend.enabled = true;
-		MoveTowardsBall.speed = 4.0f;
+		MoveTowardsBall.speed = 3.0f;
 	}
 
 	IEnumerator WaitAndEnableForJump(){
 		yield return new WaitForSeconds(2f);
 		EffectOnJumping.SetActive (false);
 		rend.enabled = true;
-		MoveTowardsBall.speed = 6.0f;
+		MoveTowardsBall.speed = 3.0f;
 
 	}
 
@@ -70,7 +70,7 @@ public class SpriterendererCheck : MonoBehaviour {
 		yield return new WaitForSeconds(2f);
 		EffectOnGrowing.SetActive (false);
 		rend.enabled = true;
-		MoveTowardsBall.speed = 6.0f;
+		MoveTowardsBall.speed = 3.0f;
 
 	}
 		// Toggle the Object's visibility each second.

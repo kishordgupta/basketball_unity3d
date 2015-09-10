@@ -137,7 +137,7 @@ public class PowerUp : MonoBehaviour {
 		Player.speed=3.0f;
 		Player.distanceJump=2.0f;
 		Player.speedJump=2.0f;
-		MoveTowardsBall.speed=6.0f;
+		MoveTowardsBall.speed=3.0f;
 
 		playerObject.transform.localScale=new Vector3(0.7f,0.7f,1);
 		opponentObject.transform.localScale=new Vector3(0.7f,0.7f,1);
@@ -177,7 +177,7 @@ public class PowerUp : MonoBehaviour {
 //		
 		else if(!Ball.playerHand)
 		{
-			MoveTowardsBall.speed=8.0f;
+			MoveTowardsBall.speed=6.0f;
 			StartCoroutine(GreenIceWait());
 		}
 		Destroy(speed.gameObject);
@@ -225,7 +225,7 @@ public class PowerUp : MonoBehaviour {
 ////		
 		else if(!Ball.playerHand)
 		{
-			MoveTowardsBall.speed=8.0f;
+			MoveTowardsBall.speed=6.0f;
 			StartCoroutine(GreenIceWait());
 		}
 		Destroy(jump.gameObject);

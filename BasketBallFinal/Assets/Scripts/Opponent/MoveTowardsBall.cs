@@ -6,7 +6,7 @@ using BehaviorDesigner.Runtime;
 public class MoveTowardsBall : Action
 {
 
-		public static float speed = 4.0f;
+		public static float speed = 3.0f;
 		public SharedTransform target;
 		public Transform opponentHand;
 		public GameObject rotateObject;

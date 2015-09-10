@@ -30,7 +30,7 @@ namespace Soomla.Store
 		/** Unity-Editor Functions **/
 
 		protected virtual int _getBalance(VirtualItem item) {
-#if UNITY_EDITOR && UNITY_ANDROID
+#if UNITY_EDITOR 
 			string itemId = item.ItemId;
 			string key = keyBalance(itemId);
 			string val = PlayerPrefs.GetString(key);
@@ -50,7 +50,7 @@ namespace Soomla.Store
 		}
 
 		protected virtual int _setBalance(VirtualItem item, int balance, bool notify) {
-			#if UNITY_EDITOR && UNITY_ANDROID
+			#if UNITY_EDITOR 
 			int oldBalance = _getBalance(item);
 			if (oldBalance == balance) {
 				return balance;
@@ -74,7 +74,7 @@ namespace Soomla.Store
 		}
 
 		protected virtual int _add(VirtualItem item, int amount, bool notify){
-			#if UNITY_EDITOR && UNITY_ANDROID
+			#if UNITY_EDITOR 
 			string itemId = item.ItemId;
 			int balance = _getBalance(item);
 			if (balance < 0) { /* in case the user "adds" a negative value */
@@ -97,7 +97,7 @@ namespace Soomla.Store
 		}
 
 		protected virtual int _remove(VirtualItem item, int amount, bool notify){
-			#if UNITY_EDITOR && UNITY_ANDROID
+			#if UNITY_EDITOR 
 			string itemId = item.ItemId;
 			int balance = _getBalance(item) - amount;
 			if (balance < 0) {
@@ -121,7 +121,7 @@ namespace Soomla.Store
 
 		/** Keys (protected helper functions if Unity Editor is being used.) **/
 
-		#if UNITY_EDITOR && UNITY_ANDROID
+		#if UNITY_EDITOR 
 		protected abstract string keyBalance(String itemId);
 
 		protected abstract void postBalanceChangeEvent(VirtualItem item, int balance, int amountAdded);
