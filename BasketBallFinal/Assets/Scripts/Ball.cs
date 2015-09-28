@@ -11,19 +11,19 @@ public class Ball : MonoBehaviour
 {
 	
 	
-	public float constantSpeed = 80f;
+	public float constantSpeed = 10f;
 //	public float smoothingFactor = 2f;
-	float force = 3.0f;
+	float force = 9.0f;
 	float jumpForce = 1f;
-		private float maxForce = 100f;
+		private float maxForce = 30f;
 	public static Vector2 ballPosition;
 	public static int playerScore;
 	public static int oppnentScore;
 	public static string str1 = "0";
 	public static string str2 = "0";
 
-	public static float xForce = 50f + PurchaseManager.playerHandIncrement;
-	public static float yForce = 50f + PurchaseManager.playerHandIncrement;
+	public static float xForce = 30f + PurchaseManager.playerHandIncrement;
+	public static float yForce = 30f + PurchaseManager.playerHandIncrement;
 
 	public GameObject oppo;
 
@@ -258,7 +258,7 @@ public class Ball : MonoBehaviour
 			
 				} else if (other.collider.CompareTag ("OpponentHand")) {
 						
-						rigidbody2D.AddForce (new Vector2 (-60, 60) * force, ForceMode2D.Impulse);
+						rigidbody2D.AddForce (new Vector2 (-40f, 40f) * force, ForceMode2D.Impulse);
 						playerHand = false;
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
 						ownHalf = false;
@@ -275,18 +275,24 @@ public class Ball : MonoBehaviour
 
 
 				} else if (other.collider.CompareTag ("Player")) {
-						//print ("colliding  " + other.collider.tag);
-				rigidbody2D.AddForce (new Vector2 (40, 40) * force, ForceMode2D.Impulse);
+				rigidbody2D.AddForce (new Vector2 (10, 10) * force, ForceMode2D.Impulse);
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
-			print ("touched me!");
 //						rigidbody2D.AddForce (new Vector2 (0f, 1f) * force, ForceMode2D.Force);
 						playerHand = true;
 						ownHalf = false;
 
 
-				} else if (other.collider.CompareTag ("Opponent")) {
+			}else if (other.collider.CompareTag ("Head")) {
+				rigidbody2D.AddForce (new Vector2 (30, 30) * force, ForceMode2D.Impulse);
+				AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
+				//						rigidbody2D.AddForce (new Vector2 (0f, 1f) * force, ForceMode2D.Force);
+				playerHand = true;
+				ownHalf = false;
+				
+				
+			} else if (other.collider.CompareTag ("Opponent")) {
 						//print ("colliding  " + other.collider.tag);
-				rigidbody2D.AddForce (new Vector2 (-40, 40) * force, ForceMode2D.Impulse);
+				rigidbody2D.AddForce (new Vector2 (-10, 10) * force, ForceMode2D.Impulse);
 
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
 //						rigidbody2D.AddForce (new Vector2 (0f, 1f) * force, ForceMode2D.Force);
@@ -312,15 +318,19 @@ public class Ball : MonoBehaviour
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
 						rigidbody2D.AddTorque (3.0f, ForceMode2D.Force);
 				} else if (other.collider.CompareTag ("Hoop")) {
+				AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
+				print("yes,force up beforez" + rigidbody2D.velocity.magnitude);
 
-//			StartCoroutine(BallSlow());
-						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
-//			print("at last");
-						rigidbody2D.velocity = new Vector2 (0.0f, -1.0f);
+				if(rigidbody2D.velocity.magnitude > 0){
+					float xvel = rigidbody2D.velocity.x/2;
+					float yvel = rigidbody2D.velocity.y/2;
+					rigidbody2D.velocity = new Vector2(xvel,yvel);
+					print("yes,force up" + rigidbody2D.velocity.magnitude);
+				}
 
-//			rigidbody2D.AddForce (new Vector2 (0.0f, 0f) * 0, ForceMode2D.Force); 
-//			baskBall.drag = 3.0f;
-
+//						rigidbody2D.velocity = new Vector2 (1.5f, -1.0f);
+				rigidbody2D.AddForce (new Vector2 (-0, 0) * 0, ForceMode2D.Force);
+			
 				} else if (other.collider.CompareTag ("Wall")) {
 						
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
