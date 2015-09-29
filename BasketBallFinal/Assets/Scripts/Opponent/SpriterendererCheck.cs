@@ -8,11 +8,12 @@ public class SpriterendererCheck : MonoBehaviour {
 	public Button Speeding;
 	public Button Jumping;
 	public Button Growing;
+	public Button IcingOppo;
 
 	public GameObject EffectOnSpeeding;
 	public GameObject EffectOnJumping;
 	public GameObject EffectOnGrowing;
-
+	public GameObject EffectOnIcing;
 
 		public Renderer rend;
 		
@@ -38,6 +39,12 @@ public class SpriterendererCheck : MonoBehaviour {
 			
 		});
 
+		IcingOppo.onClick.AddListener (() => {
+		
+			EffectOnIcing.SetActive(true);
+			StartCoroutine(IcingEffectDisable());
+		});
+
 
 		Growing.onClick.AddListener (() => {
 			rend.enabled = false;
@@ -55,6 +62,12 @@ public class SpriterendererCheck : MonoBehaviour {
 		EffectOnSpeeding.SetActive (false);
 		rend.enabled = true;
 		MoveTowardsBall.speed = 3.0f;
+	}
+
+	IEnumerator IcingEffectDisable()
+	{
+		yield return new WaitForSeconds(5f);
+		EffectOnIcing.SetActive (false);
 	}
 
 	IEnumerator WaitAndEnableForJump(){
