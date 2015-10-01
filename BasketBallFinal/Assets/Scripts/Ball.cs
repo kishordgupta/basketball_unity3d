@@ -178,7 +178,7 @@ public class Ball : MonoBehaviour
 				} else if (other.gameObject.tag == "MidBorder") {
 				
 			ownHalf = true;
-			print ("Boom");
+//			print ("Boom");
 		}
 
 
@@ -210,7 +210,7 @@ public class Ball : MonoBehaviour
 			else
 			{
 				playerScore = playerScore + 2;
-				print (ownHalf);
+//				print (ownHalf);
 
 			}
 
@@ -290,7 +290,15 @@ public class Ball : MonoBehaviour
 				ownHalf = false;
 				
 				
-			} else if (other.collider.CompareTag ("Opponent")) {
+			} else if (other.collider.CompareTag ("HeadOpp")) {
+				rigidbody2D.AddForce (new Vector2 (-30, 30) * force, ForceMode2D.Impulse);
+				AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
+				//						rigidbody2D.AddForce (new Vector2 (0f, 1f) * force, ForceMode2D.Force);
+				playerHand = true;
+				ownHalf = false;
+				
+				
+			}else if (other.collider.CompareTag ("Opponent")) {
 						//print ("colliding  " + other.collider.tag);
 				rigidbody2D.AddForce (new Vector2 (-10, 10) * force, ForceMode2D.Impulse);
 

@@ -651,8 +651,10 @@
      <Compile Include="Assets\Scripts\Opponent\SpriterendererCheck.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Player\SpriteChange.cs" />
+     <Compile Include="Assets\Scripts\PowerUPScript\MissileAction.cs" />
      <Compile Include="Assets\Scripts\PowerUPScript\PowerGeneratorScript.cs" />
      <Compile Include="Assets\Scripts\PowerUPScript\PowerUp.cs" />
+     <Compile Include="Assets\Scripts\PowerUPScript\WeaponAction.cs" />
      <Compile Include="Assets\Scripts\SettingsSwitching.cs" />
      <Compile Include="Assets\Scripts\Shop\ExampleAssets.cs" />
      <Compile Include="Assets\Scripts\Shop\ExampleWindow.cs" />

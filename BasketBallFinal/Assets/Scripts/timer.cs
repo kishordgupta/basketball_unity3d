@@ -29,7 +29,7 @@ public class timer : MonoBehaviour {
 
 
 	void Start () {
-		timeR=60.0f;
+		timeR=10.0f;
 		Time.timeScale=1.0f;
 
 
@@ -74,20 +74,27 @@ public class timer : MonoBehaviour {
 				break;
 			}
 			boolTimer = false;
-				if(Ball.playerScore > Ball.oppnentScore)
+				if(Ball.playerScore > Ball.oppnentScore && GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().alpha == 0f)
 				{
 					playerPoint +=3;
 					GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().alpha = 1f;
 					GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().interactable = true;
 					GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().blocksRaycasts = true;
+					StartCoroutine (DisableCoinEarnPanel());
 				}
-				else if(Ball.playerScore < Ball.oppnentScore)
+				else if(Ball.playerScore < Ball.oppnentScore && GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().alpha == 0f)
 				{
 					playerPoint --;
 					GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().alpha = 1f;
 					GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().interactable = true;
 					GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().blocksRaycasts = true;
+					StartCoroutine (DisableCoinEarnPanel());
 
+
+				}
+
+				else{
+					print ("nothing");
 				}
 
 				} 
@@ -184,6 +191,21 @@ public class timer : MonoBehaviour {
 		championshipGameOverPanel.GetComponent<CanvasGroup>().interactable=true;
 		championshipGameOverPanel.GetComponent<CanvasGroup>().blocksRaycasts=true;
 	}
+
+	IEnumerator DisableCoinEarnPanel()
+		{
+			yield return new WaitForSeconds(3f);
+
+			GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().alpha = 0f;
+			GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().interactable = false;
+			GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
+			
+			GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().alpha = 0f;
+			GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().interactable = false;
+			GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
+			
+		}
+
 
 
 }

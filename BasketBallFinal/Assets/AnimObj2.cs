@@ -10,7 +10,7 @@ public class AnimObj2 : MonoBehaviour {
 
 	IEnumerator AnimWait()
 	{
-		yield return new WaitForSeconds (5f);
+		yield return new WaitForSeconds (1f);
 		gameObject.SetActive (false);
 	}
 	

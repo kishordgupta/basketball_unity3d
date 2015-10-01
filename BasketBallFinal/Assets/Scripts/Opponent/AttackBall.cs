@@ -14,7 +14,7 @@ public class AttackBall : Conditional
 		public override TaskStatus OnUpdate ()
 		{
 			
-				if (Vector3.SqrMagnitude (transform.position - target.Value.position) < 4f) {
+				if (Vector3.SqrMagnitude (transform.position - target.Value.position) < 3f) {
 	
 //						Attack ();
 						return TaskStatus.Success;

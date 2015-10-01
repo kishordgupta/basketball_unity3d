@@ -14,7 +14,7 @@ public class MoveTowardsBall : Action
 		public override TaskStatus OnUpdate ()
 		{
 
-				if (Vector3.SqrMagnitude (transform.position - target.Value.position) < 4f) {
+				if (Vector3.SqrMagnitude (transform.position - target.Value.position) < 2f) {
 						Attack ();
 //						//						return TaskStatus.Running;
 						return TaskStatus.Running;
