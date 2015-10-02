@@ -54,6 +54,7 @@ public class SpriterendererCheck : MonoBehaviour {
 			WeaponInstansiatePos = GameObject.FindGameObjectWithTag("Player").transform.position;
 			WeaponInstansiatePos = WeaponInstansiatePos + new Vector2(0.5f,0);
 			Instantiate(MissileJump,WeaponInstansiatePos,Quaternion.identity);
+			KillOpponent = true;
 //			MissileActive = true;
 //			KillOpponent = MissileAction.MissileCollisionSign;
 
@@ -131,7 +132,7 @@ public class SpriterendererCheck : MonoBehaviour {
 		EffectOnJumping.SetActive (false);
 		rend.enabled = true;
 		MoveTowardsBall.speed = 3.0f;
-//		KillOpponent = false;
+		KillOpponent = false;
 
 	}
 
@@ -145,7 +146,7 @@ public class SpriterendererCheck : MonoBehaviour {
 	}
 		// Toggle the Object's visibility each second.
 		void Update() {
-		KillOpponent = MissileAction.MissileCollisionSign;
+//		KillOpponent = MissileAction.MissileCollisionSign;
 
 		if(KillOpponent == true)
 		{

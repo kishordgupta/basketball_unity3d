@@ -21,15 +21,17 @@ public class timer : MonoBehaviour {
 		public GameObject GameOverWinCoinEarnPanel;
 		public GameObject GameOverLossCoinDeductionPanel;
 
+
 	public GameObject championshipGameOverPanel;
 
 
 	public bool boolTimer;
+		public bool panelVisible = false;
 
 
 
 	void Start () {
-		timeR=10.0f;
+		timeR=60.0f;
 		Time.timeScale=1.0f;
 
 
@@ -74,27 +76,28 @@ public class timer : MonoBehaviour {
 				break;
 			}
 			boolTimer = false;
-				if(Ball.playerScore > Ball.oppnentScore && GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().alpha == 0f)
+				if(Ball.playerScore > Ball.oppnentScore && !panelVisible)
 				{
 					playerPoint +=3;
 					GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().alpha = 1f;
-					GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().interactable = true;
-					GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().blocksRaycasts = true;
+					panelVisible = true;
+					print("PanelVisibility Bool " + panelVisible);
+
 					StartCoroutine (DisableCoinEarnPanel());
 				}
-				else if(Ball.playerScore < Ball.oppnentScore && GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().alpha == 0f)
+				else if(Ball.playerScore < Ball.oppnentScore && !panelVisible )
 				{
 					playerPoint --;
 					GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().alpha = 1f;
-					GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().interactable = true;
-					GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().blocksRaycasts = true;
+					panelVisible = true;
 					StartCoroutine (DisableCoinEarnPanel());
 
 
 				}
 
-				else{
-					print ("nothing");
+				else if(panelVisible){
+					GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().alpha = 0f;
+					GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().alpha = 0f;
 				}
 
 				} 
@@ -194,15 +197,11 @@ public class timer : MonoBehaviour {
 
 	IEnumerator DisableCoinEarnPanel()
 		{
-			yield return new WaitForSeconds(3f);
-
+//			print("enters here");
+			yield return new WaitForSeconds(1.0f);
 			GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().alpha = 0f;
-			GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().interactable = false;
-			GameOverLossCoinDeductionPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
-			
 			GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().alpha = 0f;
-			GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().interactable = false;
-			GameOverWinCoinEarnPanel.GetComponent<CanvasGroup> ().blocksRaycasts = false;
+			print("also enters here 3sec after");
 			
 		}
 

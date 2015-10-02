@@ -26,6 +26,8 @@ public class Ball : MonoBehaviour
 	public static float yForce = 30f + PurchaseManager.playerHandIncrement;
 
 	public GameObject oppo;
+		public GameObject PlayerHead;
+		public GameObject OppoHead;
 
 
 	public Vector2 velocity;
@@ -33,6 +35,7 @@ public class Ball : MonoBehaviour
 
 	public static bool playerHand=true;
 	public static bool ownHalf = false;
+		public bool startGame = true;
 
 	public AudioClip[] BallTouch;
 
@@ -109,6 +112,17 @@ public class Ball : MonoBehaviour
 	{
 //		float rotation;
 //		rotation *= Time.deltaTime;
+			if (rigidbody2D.velocity.y == 0) {
+				rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x,2.0f);
+				print(rigidbody2D.velocity.y + "Velocity up");
+			}
+			if (rigidbody2D.velocity.x == 0) {
+//				int randomNumber=Random.Range(-2,2);
+				rigidbody2D.velocity = new Vector2(3f,rigidbody2D.velocity.y);
+				print(rigidbody2D.velocity.x + "XVelocity up");
+			}
+
+
 	}
 	
 	void LateUpdate ()
@@ -174,6 +188,7 @@ public class Ball : MonoBehaviour
 //			print (str2);
 						//Application.LoadLevel(0);
 			gameObject.rigidbody2D.velocity = new Vector2 (0f, 1f);
+				startGame = true;
 			
 				} else if (other.gameObject.tag == "MidBorder") {
 				
@@ -220,6 +235,8 @@ public class Ball : MonoBehaviour
 			//gameObject.GetComponent<Text>().text = str1;
 			
 			gameObject.rigidbody2D.velocity = new Vector2 (0f, 1f);
+				startGame = true;
+
 			
 		}
 
@@ -275,7 +292,7 @@ public class Ball : MonoBehaviour
 
 
 				} else if (other.collider.CompareTag ("Player")) {
-				rigidbody2D.AddForce (new Vector2 (10, 10) * force, ForceMode2D.Impulse);
+				rigidbody2D.AddForce (new Vector2 (rigidbody2D.velocity.x, rigidbody2D.velocity.y) * force, ForceMode2D.Impulse);
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
 //						rigidbody2D.AddForce (new Vector2 (0f, 1f) * force, ForceMode2D.Force);
 						playerHand = true;
@@ -283,7 +300,7 @@ public class Ball : MonoBehaviour
 
 
 			}else if (other.collider.CompareTag ("Head")) {
-				rigidbody2D.AddForce (new Vector2 (30, 30) * force, ForceMode2D.Impulse);
+				rigidbody2D.AddForce (new Vector2 (PlayerHead.rigidbody2D.velocity.x*rigidbody2D.velocity.x, PlayerHead.rigidbody2D.velocity.x*rigidbody2D.velocity.y) * force, ForceMode2D.Impulse);
 				AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
 				//						rigidbody2D.AddForce (new Vector2 (0f, 1f) * force, ForceMode2D.Force);
 				playerHand = true;
@@ -291,7 +308,7 @@ public class Ball : MonoBehaviour
 				
 				
 			} else if (other.collider.CompareTag ("HeadOpp")) {
-				rigidbody2D.AddForce (new Vector2 (-30, 30) * force, ForceMode2D.Impulse);
+				rigidbody2D.AddForce (new Vector2 (OppoHead.rigidbody2D.velocity.x*rigidbody2D.velocity.x, OppoHead.rigidbody2D.velocity.y*rigidbody2D.velocity.y) * force, ForceMode2D.Impulse);
 				AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
 				//						rigidbody2D.AddForce (new Vector2 (0f, 1f) * force, ForceMode2D.Force);
 				playerHand = true;
@@ -300,7 +317,7 @@ public class Ball : MonoBehaviour
 				
 			}else if (other.collider.CompareTag ("Opponent")) {
 						//print ("colliding  " + other.collider.tag);
-				rigidbody2D.AddForce (new Vector2 (-10, 10) * force, ForceMode2D.Impulse);
+				rigidbody2D.AddForce (new Vector2 (rigidbody2D.velocity.x, rigidbody2D.velocity.y) * force, ForceMode2D.Impulse);
 
 						AudioSource.PlayClipAtPoint (BallTouch [0], transform.position);
 //						rigidbody2D.AddForce (new Vector2 (0f, 1f) * force, ForceMode2D.Force);
@@ -353,7 +370,17 @@ public class Ball : MonoBehaviour
 						
 				} else if (other.collider.CompareTag ("BallFloor")) {
 						ownHalf = false;
-			rigidbody2D.AddForce (new Vector2 (0f, 3.5f) * force, ForceMode2D.Force);
+				if(startGame == true){
+					rigidbody2D.AddForce (new Vector2 (-15f, 3.5f) * force, ForceMode2D.Impulse);
+//					startGame = false;
+//					print ("HitHere " + startGame);
+										startGame = false;
+
+				}
+				else{
+					rigidbody2D.AddForce (new Vector2 (rigidbody2D.velocity.x, rigidbody2D.velocity.y) * force, ForceMode2D.Force);
+//					print ("HitHere "  + startGame + "force x: " + rigidbody2D.velocity.x);
+				}
 		}
 			
 //			else if (other.collider.CompareTag ("Player") && other.collider.CompareTag ("Opponent") ) {

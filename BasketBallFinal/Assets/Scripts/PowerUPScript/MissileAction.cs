@@ -12,6 +12,7 @@ public class MissileAction : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	
+		StartCoroutine (DestroyMissile());
 	}
 	
 	// Update is called once per frame
@@ -19,6 +20,7 @@ public class MissileAction : MonoBehaviour {
 		float temp = WeaponTargetPos.x - SpriterendererCheck.WeaponInstansiatePos.x;
 		float tempx = temp / 10;
 		WeaponTargetPos = GameObject.FindGameObjectWithTag("Opponent").transform.position;
+
 		if (tempx > 0) {
 			transform.position += new Vector3 (tempx, 0, 0);
 		} else {
@@ -26,14 +28,24 @@ public class MissileAction : MonoBehaviour {
 			transform.localScale += new Vector3(-1F, 0, 0);
 			transform.position += new Vector3 (tempx, 0, 0);
 		}
+
+
 	}
 
-	void OnCollisionEnter2D (Collision2D other)
+	IEnumerator DestroyMissile()
 	{
-		if (other.gameObject.tag == "Opponent") {
-	
-			MissileCollisionSign = true;
-			Destroy(gameObject);
-		}
+		yield return new WaitForSeconds (5.0f);
+		Destroy (gameObject);
 	}
+
+//	void OnCollisionEnter2D (Collision2D other)
+//	{
+//		if (other.gameObject.tag == "Opponent" ) {
+//	
+//			print("Missile attacked");
+//			MissileCollisionSign = true;
+//			Destroy(gameObject);
+//
+//		}
+//	}
 }

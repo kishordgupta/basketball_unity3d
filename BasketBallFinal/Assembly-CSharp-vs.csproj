@@ -618,6 +618,7 @@
      <Compile Include="Assets\Scripts\Championship\ChampionshipMain.cs" />
      <Compile Include="Assets\Scripts\ClassicMode\ClassicLevelChoose.cs" />
      <Compile Include="Assets\Scripts\ClassicMode\ClassicModeMain.cs" />
+     <Compile Include="Assets\Scripts\GameOverCoinPanel.cs" />
      <Compile Include="Assets\Scripts\Hand.cs" />
      <Compile Include="Assets\Scripts\League\Arcade.cs" />
      <Compile Include="Assets\Scripts\League\Country.cs" />
@@ -784,13 +785,13 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.5/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="BehaviorDesignerRuntime">
- <HintPath>/Users/kishordattagupta/Documents/project/BasketBallFinal/Assets/Behavior Designer/Runtime/BehaviorDesignerRuntime.dll</HintPath>
+ <HintPath>/Users/kishordattagupta/basketaball/BasketBallFinal/Assets/Behavior Designer/Runtime/BehaviorDesignerRuntime.dll</HintPath>
  </Reference>
  <Reference Include="soomla-wp-core">
- <HintPath>/Users/kishordattagupta/Documents/project/BasketBallFinal/Assets/Plugins/soomla-wp-core.dll</HintPath>
+ <HintPath>/Users/kishordattagupta/basketaball/BasketBallFinal/Assets/Plugins/soomla-wp-core.dll</HintPath>
  </Reference>
  <Reference Include="wp-store">
- <HintPath>/Users/kishordattagupta/Documents/project/BasketBallFinal/Assets/Plugins/wp-store.dll</HintPath>
+ <HintPath>/Users/kishordattagupta/basketaball/BasketBallFinal/Assets/Plugins/wp-store.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
